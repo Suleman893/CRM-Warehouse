@@ -1,0 +1,2263 @@
+{
+	"info": {
+		"_postman_id": "a1b147f2-45d3-487c-97bb-30b7754c7488",
+		"name": "CustomCRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31230519"
+	},
+	"item": [
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Add task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client",
+									"value": "6704e58074cf49a7c8413dbb",
+									"type": "text"
+								},
+								{
+									"key": "store",
+									"value": "6704e59474cf49a7c8413dc6",
+									"type": "text"
+								},
+								{
+									"key": "taskType",
+									"value": "66ebd6b5e13f9ebc79b54f9f",
+									"description": "Service ObjectId",
+									"type": "text"
+								},
+								{
+									"key": "assignTo",
+									"value": "[\"664318d61cb9bef8381f896c\", \"664318d61cb9bef8381f896c\"]",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2002-12-12",
+									"type": "text"
+								},
+								{
+									"key": "dueDate",
+									"value": "2002-12-12",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "Medium",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "5Z3ohZc6-/1726473808536_Image+(1).png"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/task/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client",
+									"value": "66e80e6ccc1ef033ffbd8fab",
+									"type": "text"
+								},
+								{
+									"key": "store",
+									"value": "66e80e7acc1ef033ffbd8fb5",
+									"type": "text"
+								},
+								{
+									"key": "taskType",
+									"value": "66ebd6b5e13f9ebc79b54f9f",
+									"type": "text"
+								},
+								{
+									"key": "assignTo",
+									"value": "[\"664318d61cb9bef8381f896c\"]",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2002-12-12",
+									"type": "text"
+								},
+								{
+									"key": "dueDate",
+									"value": "2002-12-12",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "Medium",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/task/edit/66ebd6cee13f9ebc79b54fa1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/task/all?status=InProgress&page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"task",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "InProgress"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get task by id/ Task detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/task/detail/6704da0ef3db2b40203cbc8c"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment on task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "Just a simple text of comment",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "RCGMnI6_6/1726473808536_Image+(1).png"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/task/comment/66eab5aabca099b1a0419874"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Priority",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"priority\": \"High\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/task/priority/6704da0ef3db2b40203cbc8c"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/task/status/6704da0ef3db2b40203cbc8c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/task/delete/66eab5aabca099b1a0419874"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Add client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test client two",
+									"type": "text"
+								},
+								{
+									"key": "jobType",
+									"value": "Machine repairer",
+									"type": "text"
+								},
+								{
+									"key": "taxId",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "taxOffice",
+									"value": "Near johar town",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Model town",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Lahore",
+									"type": "text"
+								},
+								{
+									"key": "postalCode",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "region",
+									"value": "Punjab",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Pakistan",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "23000",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "YZwpZKhA_/Image (1).png"
+								},
+								{
+									"key": "route",
+									"value": "66f3fb2a9e561523e5ad31c5",
+									"type": "text"
+								},
+								{
+									"key": "salesman",
+									"value": "66e3023e6f695c71dbfb74aa",
+									"type": "text"
+								},
+								{
+									"key": "contactInfo",
+									"value": "[{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"homePhone\":\"+123456789\",\"mobilePhone\":\"+987654321\",\"workPhone\":\"122121\"},{\"name\":\"Jane Smith\",\"email\":\"jane.smith@example.com\",\"homePhone\":\"+123456789\",\"mobilePhone\":\"+987654321\"}]",
+									"type": "text"
+								},
+								{
+									"key": "devices",
+									"value": "[\"66e05a9190df8cc6f7cc658b\"]",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/client/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Update client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test client edit",
+									"type": "text"
+								},
+								{
+									"key": "jobType",
+									"value": "Machine repairer",
+									"type": "text"
+								},
+								{
+									"key": "taxId",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "taxOffice",
+									"value": "Near johar town",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Model town",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Lahore",
+									"type": "text"
+								},
+								{
+									"key": "postalCode",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "region",
+									"value": "Punjab",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Pakistan",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "23000",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "Dzq3wEZHC/Card.png"
+								},
+								{
+									"key": "route",
+									"value": "66e3023e6f695c71dbfb74aa",
+									"type": "text"
+								},
+								{
+									"key": "salesman",
+									"value": "66e3023e6f695c71dbfb74aa",
+									"type": "text"
+								},
+								{
+									"key": "paymentMethod",
+									"value": "Credit Card",
+									"type": "text"
+								},
+								{
+									"key": "contactInfo",
+									"value": "[{\"name\":\"Hammad zahid\",\"email\":\"john.doe@example.com\",\"homePhone\":\"+123456789\",\"mobilePhone\":\"+987654321\",\"workPhone\":\"122121\"}]",
+									"type": "text"
+								},
+								{
+									"key": "devices",
+									"value": "[\"66e05a9190df8cc6f7cc658b\"]",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/client/edit/6704e05b74cf49a7c8413d73"
+					},
+					"response": []
+				},
+				{
+					"name": "Get clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/client/all?status=Active&page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"client",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Active"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get clients for dropdown",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/client/dropdown"
+					},
+					"response": []
+				},
+				{
+					"name": "Client detail by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/client/detail/6704e58074cf49a7c8413dbb"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment on client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "Test comment on the clent",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "AVNrqqdYG/Image (1).png"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/client/comment/66e302536f695c71dbfb74af"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/client/delete/6704e05b74cf49a7c8413d73"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/client/status/6704e11274cf49a7c8413d91"
+					},
+					"response": []
+				},
+				{
+					"name": "Decline Client",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"taskId\": \"670525484fee86cf31b0c115\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/client/decline/6704e58074cf49a7c8413dbb"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Add store (Client id as params)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test store of client",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Model town",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Lahore",
+									"type": "text"
+								},
+								{
+									"key": "postalCode",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "region",
+									"value": "Punjab",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Pakistan",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "23000",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "pRj7yxPBH/Image (1).png"
+								},
+								{
+									"key": "route",
+									"value": "66e3023e6f695c71dbfb74aa",
+									"type": "text"
+								},
+								{
+									"key": "salesman",
+									"value": "66daef60717def0f10102e0d",
+									"type": "text"
+								},
+								{
+									"key": "contactInfo",
+									"value": "[{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"homePhone\":\"+123456789\",\"mobilePhone\":\"+987654321\",\"workPhone\":\"122121\"},{\"name\":\"Jane Smith\",\"email\":\"jane.smith@example.com\",\"homePhone\":\"+123456789\",\"mobilePhone\":\"+987654321\"}]",
+									"type": "text"
+								},
+								{
+									"key": "devices",
+									"value": "[\"664318d61cb9bef8381f896c\", \"664318d61cb9bef8381f896c\"]",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/store/add/6704e58074cf49a7c8413dbb"
+					},
+					"response": []
+				},
+				{
+					"name": "Update store (Id of store in params)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test store of client updated",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Model town",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Lahore",
+									"type": "text"
+								},
+								{
+									"key": "postalCode",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "region",
+									"value": "Punjab",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Pakistan",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "23000",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "pRj7yxPBH/Image (1).png"
+								},
+								{
+									"key": "route",
+									"value": "66e3023e6f695c71dbfb74aa",
+									"type": "text"
+								},
+								{
+									"key": "salesman",
+									"value": "66daef60717def0f10102e0d",
+									"type": "text"
+								},
+								{
+									"key": "contactInfo",
+									"value": "[{\"name\":\"Hammad zahid\",\"email\":\"john.doe@example.com\",\"homePhone\":\"+123456789\",\"mobilePhone\":\"+987654321\",\"workPhone\":\"122121\"}]",
+									"type": "text"
+								},
+								{
+									"key": "devices",
+									"value": "[\"664318d61cb9bef8381f896c\", \"664318d61cb9bef8381f896c\"]",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/store/edit/6704e13e74cf49a7c8413d9d"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stores (Not in Usage, No screen for all stores in figma)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/store/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Store by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/store/detail/6704e13e74cf49a7c8413d9d"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment on store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "Test the comment in the store from modal",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "Ea8ho9bLx/Image (1).png"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/store/comment/6704e13e74cf49a7c8413d9d"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete store",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/store/delete/6704e13e74cf49a7c8413d9d"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"In Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/store/status/66defc2d399f924d4bfa26e9"
+					},
+					"response": []
+				},
+				{
+					"name": "Decline Store",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"taskId\": \"670525484fee86cf31b0c115\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/store/decline/66eabfd5e118bb023180fba2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Add Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderNo\": \"Order 0021\",\r\n    \"startDate\": \"2024-01-01T00:00:00Z\",\r\n    \"dueDate\": \"2024-01-01T00:00:00Z\",\r\n    \"client\": \"670511a5144911bf4c473fe5\",\r\n    \"store\": \"66eabfd5e118bb023180fba2\",\r\n    \"task\": \"66ebd6cee13f9ebc79b54fa1\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb909e561523e5ad31c8\",\r\n            \"quantity\": 150,\r\n            \"discount\": \"10%\",\r\n            \"price\": 100.00,\r\n            \"vat\": \"10%\",\r\n            \"amount\": 95.00\r\n        },\r\n        {\r\n            \"materialId\": \"66f3fb989e561523e5ad31ce\",\r\n            \"quantity\": 150,\r\n            \"discount\": \"10%\",\r\n            \"price\": 100.00,\r\n            \"vat\": \"10%\",\r\n            \"amount\": 95.00\r\n        }\r\n    ],\r\n    \"qrCode\": \"90xOabc89989\",\r\n    \"priority\": \"High\",\r\n    \"totalAmount\": 12000,\r\n    \"totalVat\": 9000,\r\n    \"shippingPrice\": 1200,\r\n    \"orderTotalPrice\": 9099,\r\n    \"note\": \"Just a sample order\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/order/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2024-01-01T00:00:00Z\",\r\n    \"dueDate\": \"2024-01-01T00:00:00Z\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66eae46a7dde3978ea5319d7\",\r\n            \"quantity\": 10,\r\n            \"discount\": \"10%\",\r\n            \"price\": 100.00,\r\n            \"vat\": \"10%\",\r\n            \"amount\": 95.00\r\n        },\r\n        {\r\n            \"materialId\": \"66eae46a7dde3978ea5319d7\",\r\n            \"quantity\": 10,\r\n            \"discount\": \"10%\",\r\n            \"price\": 100.00,\r\n            \"vat\": \"10%\",\r\n            \"amount\": 95.00\r\n        },\r\n        {\r\n            \"materialId\": \"66eae46a7dde3978ea5319d7\",\r\n            \"quantity\": 10,\r\n            \"discount\": \"10%\",\r\n            \"price\": 100.00,\r\n            \"vat\": \"10%\",\r\n            \"amount\": 95.00\r\n        }\r\n    ],\r\n    \"priority\": \"High\",\r\n    \"totalAmount\": 12000,\r\n    \"totalVat\": 9000,\r\n    \"shippingPrice\": 1220,\r\n    \"orderTotalPrice\": 9900\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/order/edit/66f3fc4e9e561523e5ad31e4"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/order/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"order",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Pending",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/order/detail/670511d4144911bf4c473fef"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Schedule\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/order/status/66ec3d9e2983285bc21fe008"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Priority",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"priority\": \"High\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/order/priority/66e30eff93160398190e4922"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment on order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "Test the comment in the order aws",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "bgr-5K1JP/Image (1).png"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/order/comment/66ec3d9e2983285bc21fe008"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/order/delete/66ed4b49c6d969fd99c594b2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service",
+			"item": [
+				{
+					"name": "Add Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test service\",\r\n    \"description\": \"Test\",\r\n    \"block\": \"VehicleLoading\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/service/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Service",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Test service edit\",\r\n    \"description\":\"Test\",\r\n    \"block\":\"Vehicle Loading\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/service/edit/66e04e4b776295bc6d8beb34"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/service/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"service",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete service",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/service/delete/66e04d56dd83e13e9a2362d2"
+					},
+					"response": []
+				},
+				{
+					"name": "Change service",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"InActive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/service/status/66e05a9190df8cc6f7cc658b"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Route",
+			"item": [
+				{
+					"name": "Add Route",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Two route\",\r\n    \"description\": \"Testing route two\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/route/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Route",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test route\",\r\n    \"description\": \"testt\",\r\n    \"block\": \"Vehicle Loading\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/route/edit/66e05591d63cb52b6d2f1bf4"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/route/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"route",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Route",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/route/delete/66e05591d63cb52b6d2f1bf4"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"InActive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/route/status/66e05a9190df8cc6f7cc658b"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Add Device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test device\",\r\n    \"description\": \"Testing device one\",\r\n    \"group\": \"Machine\",\r\n    \"capacity\": 40\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/device/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Device",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test route\",\r\n    \"description\": \"Testing route one\",\r\n    \"group\": \"Machine\",\r\n    \"capacity\": 40\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/device/edit/66e05a9190df8cc6f7cc658b"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/device/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"device",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Device",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/device/delete/66e05591d63cb52b6d2f1bf4"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"InActive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/device/status/66e05a9190df8cc6f7cc658b"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Material",
+			"item": [
+				{
+					"name": "Add Material",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Material Three",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "#12458341",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "zKXfTpqVF/1726473808536_Image+(1).png"
+								},
+								{
+									"key": "vat",
+									"value": "50%",
+									"type": "text"
+								},
+								{
+									"key": "group",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "barCode",
+									"value": "1435431515314349",
+									"type": "text"
+								},
+								{
+									"key": "unit",
+									"value": "KG",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "253.00",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "msds",
+									"value": "12-02-2001",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"ufvelcxxE/system.drawio (1) (1).pdf",
+										"ufvelcxxE/system.drawio (1).pdf",
+										"ufvelcxxE/ERD (1).pdf"
+									]
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/material/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Material",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Edit material",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "#12458341",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "GJgm4kgez/Card.png",
+									"disabled": true
+								},
+								{
+									"key": "vat",
+									"value": "50%",
+									"type": "text"
+								},
+								{
+									"key": "group",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "barCode",
+									"value": "1435431515314349",
+									"type": "text"
+								},
+								{
+									"key": "unit",
+									"value": "KG",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "253.00",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "msds",
+									"value": "12-02-2001",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"pA4XbukTt/1726473808536_Image+(1).png",
+										"pA4XbukTt/1726239454412_Image (1).png",
+										"vx76F-q4q/Card.png"
+									],
+									"disabled": true
+								},
+								{
+									"key": "documentsToRemove",
+									"value": "[\"66ebf814c51c976211d9d66a\", \"66ebf815c51c976211d9d66c\", \"66ebf82dc51c976211d9d67c\", \"66ebf82fc51c976211d9d680\", \"66ebf8527a8cea19a42b68fc\", \"66ebf8537a8cea19a42b68fe\", \"66ebf8547a8cea19a42b6900\"]",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/material/edit/66eae46a7dde3978ea5319d7"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Materials",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/material/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"material",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Materials For dropdown",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/material/dropdown"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Material",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/material/delete/66eab52e862279942b31622d"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"In Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/material/status/66e2c770383149ac3a820818"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "Add Warehouse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test warehouse two\",\r\n    \"code\": \"002\",\r\n    \"assignTo\": [\r\n        \"664318d61cb9bef8381f896c\",\r\n        \"664318d61cb9bef8381f896c\"\r\n    ],\r\n    \"description\": \"Test warehouse and is primary\",\r\n    \"type\": \"Vehicle\",\r\n    \"route\": \"66ec37e8f3b92452e905097f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Warehouse",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test warehouse\",\r\n    \"code\": \"1212\",\r\n    \"assignTo\": [\r\n        \"664318d61cb9bef8381f896c\",\r\n        \"664318d61cb9bef8381f896c\"\r\n    ],\r\n    \"description\": \"testing\",\r\n    \"type\": \"Primary\",\r\n    \"store\": \"66eabfd5e118bb023180fba2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse/edit/66eac1c9f72c74b93c9d8194"
+					},
+					"response": []
+				},
+				{
+					"name": "Get warehouses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/warehouse/all?type=Vehicle&page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"warehouse",
+								"all"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Vehicle"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Warehouse detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/warehouse/detail/6703d9a69140920679ce9517?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"warehouse",
+								"detail",
+								"6703d9a69140920679ce9517"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete warehouse",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse/delete/66eac1c9f72c74b93c9d8194"
+					},
+					"response": []
+				},
+				{
+					"name": "Change status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"InActive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse/status/66eac1c9f72c74b93c9d8194"
+					},
+					"response": []
+				},
+				{
+					"name": "Change type",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"Vehicle\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse/type/66ead28d476a6e71ff0b6c68"
+					},
+					"response": []
+				},
+				{
+					"name": "Warehouse by type (For Assign Vehicle Dropdown)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/warehouse/by-type?type=Vehicle",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"warehouse",
+								"by-type"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Vehicle"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Warehouse by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse/materials/66fbba0fce3962ae8466806f"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Warehouse action",
+			"item": [
+				{
+					"name": "Import Warehouse Action",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"docNo\": \"0121\",\r\n    \"docDate\": \"2012-12-11\",\r\n    \"qrCode\": \"0121\",\r\n    \"importToWarehouse\": \"67050814a73052080f669213\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb909e561523e5ad31c8\",\r\n            \"quantity\": 2250\r\n        }\r\n    ],\r\n    \"note\": \"Test warehouse action of import\",\r\n    \"totalQuantity\": 2250\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse-action/import"
+					},
+					"response": []
+				},
+				{
+					"name": "Export Warehouse Action",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"docNo\": \"104\",\r\n    \"docDate\": \"2012-12-11\",\r\n    \"qrCode\": \"143\",\r\n    \"exportFromWarehouse\": \"6703eda11929177441a415a1\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb909e561523e5ad31c8\",\r\n            \"quantity\": 500\r\n        },\r\n        {\r\n            \"materialId\": \"66f3fb989e561523e5ad31ce\",\r\n            \"quantity\": 1000\r\n        }\r\n    ],\r\n    \"note\": \"Test warehouse action to export\",\r\n    \"totalQuantity\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse-action/export"
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer Warehouse Action",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"docNo\": \"04\",\r\n    \"docDate\": \"2012-12-11\",\r\n    \"qrCode\": \"04\",\r\n    \"exportFromWarehouse\": \"6703ef7ea0763cd65c7cba12\",\r\n    \"importToWarehouse\": \"6703ef6ca0763cd65c7cba0c\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb909e561523e5ad31c8\",\r\n            \"quantity\": 25\r\n        },\r\n        {\r\n            \"materialId\": \"66f3fb989e561523e5ad31ce\",\r\n            \"quantity\": 50\r\n        }\r\n    ],\r\n    \"totalQuantity\": 75,\r\n    \"note\": \"Test warehouse action\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse-action/transfer"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Warehouse Action",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"docNo\": \"088\",\r\n    \"docDate\": \"2012-12-11\",\r\n    \"qrCode\": \"088\",\r\n    \"checkFromWarehouse\": \"6703ef6ca0763cd65c7cba0c\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb989e561523e5ad31ce\",\r\n            \"quantity\": 300,\r\n            \"actualQuantity\": 600\r\n        }\r\n    ],\r\n    \"totalQuantity\": 300,\r\n    \"totalActualQuantity\": 600,\r\n    \"note\": \"Test warehouse action of Checkout\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/warehouse-action/check"
+					},
+					"response": []
+				},
+				{
+					"name": "Get warehouse actions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/warehouse-action/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"warehouse-action",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get warehouse action check report of import",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/warehouse-action/check-report/import?startDate=2012-12-08&endDate=2012-12-11",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"warehouse-action",
+								"check-report",
+								"import"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2012-12-08"
+								},
+								{
+									"key": "endDate",
+									"value": "2012-12-11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get warehouse action check report of export",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/warehouse-action/all?endDate=2012-12-08",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"warehouse-action",
+								"all"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2012-12-08",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2012-12-08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete warehouse action",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/warehouse-action/delete/66eac1c9f72c74b93c9d8194"
+					},
+					"response": []
+				},
+				{
+					"name": "Add docs to the warehouse action",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"CdfyqUbyu/system.drawio (1).pdf",
+										"wQ_bwR9Ck/DFD (1).pdf"
+									]
+								}
+							]
+						},
+						"url": "{{baseUrl}}/crm/api/v1/warehouse-action/upload-doc/66ec491a60d20e28210ef857"
+					},
+					"response": []
+				},
+				{
+					"name": "Change status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Complete\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/warehouse-action/status/66f26a0e8fa13f3a647197da"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loading",
+			"item": [
+				{
+					"name": "All Route Loading",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/route-loading/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"route-loading",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Pending",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Vehicle/ Loading the material on vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"warehouse\": \"67050814a73052080f669213\",\r\n    \"vehicle\": \"670512ba144911bf4c473ffd\",\r\n    \"user\": \"66ead28d476a6e71ff0b6c68\",\r\n    \"route\": \"66ec37e8f3b92452e905097f\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb909e561523e5ad31c8\",\r\n            \"quantity\": 250\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/route-loading/assign-vehicle"
+					},
+					"response": []
+				},
+				{
+					"name": "Load the vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb909e561523e5ad31c8\",\r\n            \"quantity\": 250\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/loading/load-vehicle/670514a540f9e85773150a9b"
+					},
+					"response": []
+				},
+				{
+					"name": "All Loadings/ All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/loading/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"loading",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Pending",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unload vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"66f3fb989e561523e5ad31ce\",\r\n            \"quantity\": 140 //What we get after checking items manually from warehouse.\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/inventory/unloading/unload-vehicle/6703fac00673542116012656"
+					},
+					"response": []
+				},
+				{
+					"name": "All Unloadings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/inventory/unloading/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"inventory",
+								"unloading",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Pending",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Create/Edit an invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invoiceNo\": \"1221\",\r\n    \"qrCode\": \"121212\",\r\n    \"invoiceDate\": \"12-12-2000\",\r\n    \"paymentMethod\": \"Cash\",\r\n    \"client\": \"6704e58074cf49a7c8413dbb\",\r\n    \"invoiceDueDate\": \"12-12-2000\",\r\n    \"materials\": [\r\n        {\r\n            \"materialId\": \"670517bed15bf5dc87b07534\",\r\n            \"quantity\": 100,\r\n            \"price\": 100.00,\r\n            \"discount\": \"10%\",\r\n            \"vat\": \"10%\",\r\n            \"amount\": 95.00\r\n        }\r\n    ],\r\n    \"totalAmount\": 12,\r\n    \"discountTotal\": 12,\r\n    \"vatTotal\": 143,\r\n    \"shipping\": 18,\r\n    \"invoiceTotal\": 12,\r\n    \"note\": \"Just testing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/finance/invoice/create-invoice"
+					},
+					"response": []
+				},
+				{
+					"name": "All invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/finance/invoice/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"finance",
+								"invoice",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Pending",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Invoice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/finance/invoice/delete/66fab789c87431fe076405a0"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status of Invoice",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Cancel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/finance/invoice/status/66fabe1b27bc649a212589cc"
+					},
+					"response": []
+				},
+				{
+					"name": "Invoice detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/finance/invoice/detail/670517d1d15bf5dc87b07544"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Receipt",
+			"item": [
+				{
+					"name": "Create an receipt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiptNo\": \"121212\",\r\n    \"qrCode\": \"12123\",\r\n    \"receiptDate\": \"12-12-2000\",\r\n    //Client is optional as when creating from invoice then no client id and get client from invoice\r\n    // \"client\":\"6704e58074cf49a7c8413dbb\",\r\n    // Optional when creating the receipt directly from invoice listing then invoice id is needed\r\n    \"invoice\": \"66fab789c87431fe076405a0\",\r\n    \"amount\": \"12\",\r\n    \"note\": \"Test receipt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/finance/receipt/create-receipt"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit an receipt",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //Only receipt date and amount is editable\r\n    \"receiptDate\": \"2024-10-15T14:28:32.000Z\",\r\n    \"amount\": \"200\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/finance/receipt/edit/6705319206385ebf9b022a24"
+					},
+					"response": []
+				},
+				{
+					"name": "All Receipts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/crm/api/v1/finance/receipt/all?page=1&pageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"finance",
+								"receipt",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Receipt",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/finance/receipt/delete/66fabaa82eb6b4dafbfb3acc"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status of Receipt",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Cancel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/crm/api/v1/finance/receipt/status/66fabeb6fdede76523b0fd4e"
+					},
+					"response": []
+				},
+				{
+					"name": "Receipt detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/crm/api/v1/finance/receipt/detail/6705311906385ebf9b022a20"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
